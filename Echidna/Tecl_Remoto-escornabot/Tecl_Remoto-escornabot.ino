@@ -5,18 +5,30 @@
     *
     Necesitamos 2 módulos Bluetooth, un Mestre e outro Escravo. 
     un HC-05 como Mestre e outro escravo que pode ser HC-05 ou HC-06
-    configuración HC-05 como Mestre. 
+    
+HC-05 como Mestre. 
     Conectaremos o modulo mediante un adaptador USB - RS-232 TTL. Axustes do terminal Baud 38400 ,NL & CR. 
+   
     Comandos AT HC-05 (Pulsar reset durante o acendido, (Parpadeo lento)):
-              Envío               -  Resposta
-    test:     AT                     OK
-    nome:     AT+NAME=<NOME>      -  OK ( preguntar é AT+NAME?, resposta o nome )
-    pin       AT+PSWD="<pin>"     -  OK ( AT+PSWD="1234" )
-    rol:      AT+ROLE=<rol>       -  OK ( 0=escravo, 1=Mestre (precisa reinicio (pulsar reset mentras se inicia )))
-    modo:     AT+CMODE=<mode>     -  OK ( 0=conexión a un enderezo especifico(Bind), 1=conectase o primeiro dispositivo que atopa e se queda ligado a el )
-    amarre:   AT+BIND=<enderezo>  -  OK ( Enderezo do escravo no seguinte formato 18,E4,34F79D )
+    
+                Envío               -  Resposta
+    test:       AT                  -  OK
+    nome:       AT+NAME=<NOME>      -  OK ( preguntar é AT+NAME?, resposta o nome )
+    pin         AT+PSWD="<pin>"     -  OK ( AT+PSWD="1234" o mesmo que no escravo)
+    Velocidade  AT+UART=9600,0,0    -  OK ( a mesma velocidade que no escravo )
+    rol:        AT+ROLE=<rol>       -  OK ( 0=escravo, 1=Mestre (precisa reinicio (pulsar reset mentras se inicia )))
+    modo:       AT+CMODE=<mode>     -  OK ( 0=conexión a un enderezo especifico(Bind), 1=conectase o primeiro dispositivo que atopa e se queda ligado a el )
+    amarre:     AT+BIND=<enderezo>  -  OK ( Enderezo do escravo no seguinte formato 18,E4,34F79D )
 
     +info: https://goo.gl/YTYMmm
+
+HC-06 escravo. 
+     Conectaremos o modulo mediante un adaptador USB - RS-232 TTL. Axustes do terminal Baud 9600, sen axuste de liña.
+                Envío             -  Resposta
+    test:       AT                -  OK
+    nome:       AT+NAME<NOME>     -  OKsetname
+    pin         AT+PIN<pin>       -  OKsetPIN ( AT+PIN1234 o mesmo pin que no mestre )
+    Velocidade  AT+BAUD4          -  OK9600 ( 4 = 9600 baud ( a mesma velocidade que no mestre ))
     
     XDeSIG 2018 Creative Commons BY-SA4.0.
 */
