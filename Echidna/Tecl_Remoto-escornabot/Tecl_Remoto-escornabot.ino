@@ -18,7 +18,7 @@ HC-05 como Mestre.
     Velocidade  AT+UART=9600,0,0    -  OK ( a mesma velocidade que no escravo )
     rol:        AT+ROLE=<rol>       -  OK ( 0=escravo, 1=Mestre (precisa reinicio (pulsar reset mentras se inicia )))
     modo:       AT+CMODE=<mode>     -  OK ( 0=conexión a un enderezo especifico(Bind), 1=conectase o primeiro dispositivo que atopa e se queda ligado a el )
-    amarre:     AT+BIND=<enderezo>  -  OK ( Enderezo do escravo no seguinte formato 18,E4,34F79D )
+    amarre:     AT+BIND=<enderezo>  -  OK ( Enderezo do escravo no seguinte formato  AT+BIND=98D3, 31, 7028EF )
 
     +info: https://goo.gl/YTYMmm
 
@@ -40,10 +40,10 @@ HC-06 escravo.
 
 // A5 Entrada tecla executa (g)
 
-#define led 9 //led para indicar o funcionamento
+#define LED 9 //led para indicar o funcionamento
 
 int entradas [5] = {A0, A1, A2, A3, A5};      //os pines de entrada
-int leds [6] = {13, 6, 11, 12, 5, led};            //Led para indicar a tecla pulsada
+int leds [6] = {13, 6, 11, 12, 5, LED};            //Led para indicar a tecla pulsada
 char teclas [5] = {'e', 'n', 'w', 's', 'g'};  //cadea a enviar vía serie o escornabot
 
 
@@ -67,7 +67,7 @@ for (contador = 0 ; contador < 6; contador ++) {
     pinMode(leds[contador], OUTPUT);
   }
  
- analogWrite(led, 5);  //led de encendido tenue.
+ analogWrite(LED, 5);  //led de encendido tenue.
   }
 
   void loop() {
