@@ -27,19 +27,17 @@ int o_chan = 0;
 int led = 13;
 int brillo = 250;
 int brillo1 = 300 - brillo;
-const int clock = 8; para o módulode
-const int data = 9;
-const int dimm = 10;
-const int VIS1 = 11; 1/2 dixito para representar o nº 1
+const int clock = 8;  // out to In clock PIN 10 (J1) DE-DP22811
+const int data = 9;   // out to In data PIN 9 (J1) DE-DP22811
+const int dimm = 10;  // out to In /dimm PIN 7 (J1) DE-DP22811
+const int VIS1 = 11; // 1/2 dixito para representar nun visualizador de 7 segmentos ou 2 leds facendo o nº "1"
 
 
-int segs[10] = {
-  63, 6, 91, 79, 102, 109, 124, 07, 127, 103
-};
+int segs[10] = {63, 6, 91, 79, 102, 109, 124, 07, 127, 103};  // // codificación dos segmentos para os n 0 a 9
 int unidade = 0;
 int decena = 0;
-byte punto = B10000000;
-byte nada = B00000000;
+byte punto = B10000000; // Codificación do segmento do punto
+byte nada = B00000000; // Codificación dixitos apagados
 
 
 void setup()
